@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Votre attention SVP</title>
+    <style>
+      body{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vous êtes sur le point d'aller sur un site pouvant heurter les personnes les plus sensibles</h1>
+    <a id="site_url">Cliquez ici pour continuer vers <span id="site"></span></a><br/>
+    <a href="javascript: window.history.go(-1);">Ou bien cliquez ici pour retourner en arrière</a><br/>
+    <hr/><br/>
+    Pour protéger vos liens, partagez les préfixés de <input id="host"/>
+  </body>
+  <script>
+    var site = location.search.substring(1);
+    window.document.getElementById('site').textContent = site;
+    window.document.getElementById('site_url').setAttribute('href',site);
+    window.document.getElementById('host').setAttribute('value',window.location.href.split('?')[0] + "?");
+  </script>
+</html>
